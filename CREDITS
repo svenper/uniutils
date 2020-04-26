@@ -1,0 +1,13 @@
+Dylan Thurston
+      Provided a patch to Get_UTF32_From_UTF8 that allows it to deal correctly
+      with interrupted UTF-8 sequences.
+
+H. Merijn Brand
+     Proposed and implemented -A option to ignore ASCII whitespace.
+
+Mohammed Sameer
+     Supplied patch for bug in -V option of uniname.
+
+
+ 
+

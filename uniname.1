@@ -1,0 +1,100 @@
+.TH uniname 1 "February, 2009"
+.SH NAME
+uniname \- Name the characters in a Unicode text file
+.SH SYNOPSIS
+.B uniname ([option flags]) (<file name>)
+.PP
+If no input file name is supplied,
+.I uniname
+reads from the standard input.
+.SH DESCRIPTION
+.I uniname
+names the characters in a Unicode text file.
+For each character,
+.I uniname
+defaults to printing the character offset, the byte offset, the hexadecimal UTF-32 character code,
+the encoding as a sequence of hex byte values,
+the glyph,
+and the character's Unicode name. Command line flags allow undesired information
+to be suppressed.
+Glyphs that do not display nicely, such as control characters and spaces, are not displayed.
+For the Latin-1 control characters, whose
+official Unicode name is "control", the real name is given. Character and byte
+offsets both start from 0. 
+.PP
+Where a character does not have a unique Unicode name, as is the case with Chinese
+characters, the character is identified as "character in such-and-such a range".
+However, if the character is a Chinese character listed in Nelson's dictionary,
+the Nelson number is supplied.
+.PP
+By default, input is expected to be UTF-8. Native order UTF-32 
+may be specified via the command line flag
+.pp
+If invalid UTF8 is encountered, an explanation is printed as to why it is invalid.
+.I -q.
+.SH COMMAND LINE FLAGS
+.br
+.IP "-A"
+Skip ASCII whitespace characters.
+.IP "-a"
+Skip ASCII characters.
+.IP "-B"
+Skip characters within the Basic Multilingual Plane.
+.IP "-b"
+Suppress printing of byte offset.
+.IP "-c"
+Suppress printing of character offset.
+.IP "-e"
+Suppress printing of encoding.
+.IP "-g"
+Suppress printing of glyph.
+.IP "-h"
+Print usage information.
+.IP "-l"
+Print line number.
+.IP "-n"
+Suppress printing of Unicode name.
+.IP "-p"
+Suppress printing of headers every screenfull.
+.IP "-q"
+Input is native order UTF-32.
+.IP "-r"
+Print Unicode range. 
+The ranges reported include both official Unicode ranges and the
+constructed language ranges within the Private Use Areas
+registered with the Conscript Unicode Registry (http://www.evertype.com/standards/csur/).
+.IP "-s <character offset>"
+Skip to specified character offset.
+.IP "-S <byte offset>"
+Skip to specified byte offset. Note that even if the file consists of well-formed Unicode
+there is no guarantee that the byte sequence beginning at an arbitrary byte will be
+valid Unicode. This option is provided for use where other programs generate only
+byte offsets or where it is necessary to skip over damaged Unicode. In most circumstances
+use of a character offset will be more apprpriate. If a byte offset is used, the character
+offsets shown are with respect to the beginning of the section of the file
+examined rather than the beginning of the file.
+.IP "-u"
+Suppress printing of UTF32 code.
+.IP "-V"
+Validate the input. In this case, nothing is done other than determine whether the
+input is valid UTF-8 Unicode. If it is, no output is produced and the program
+exits with status 0. If invalid UTF-8 is encountered, the program reports
+the location of the first invalid UTF-8 encountered, explains why it is invalid,
+and exits with status 1.
+.IP "-v"
+Print version information.
+.sp
+.SH SEE ALSO
+unidesc
+.SH REFERENCES
+Unicode Standard, version 5.1
+.SH AUTHOR
+Bill Poser
+.br
+billposer@alum.mit.edu
+.SH LICENSE
+GNU General Public License
+
+
+
+

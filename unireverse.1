@@ -1,0 +1,30 @@
+.TH unireverse 1 "October, 2007"
+.SH NAME
+unireverse \- Reverse each line of UTF-8 input character-by-character
+.SH SYNOPSIS
+.B unireverse ([option flags])
+.SH DESCRIPTION
+.I unireverse
+reads its input line-by-line and  reverses it character-by-character
+on the assumption that the input is UTF-8 Unicode. (Since ASCII is a subset of UTF-8,
+it also reverses ASCII strings correctly.)
+.br
+.SH COMMAND LINE FLAGS
+.br
+.IP "-h"
+Print usage information.
+.IP "-v"
+Print version information.
+.sp
+.SH REFERENCES
+Unicode Standard, version 5.0
+.SH AUTHOR
+Bill Poser
+.br
+billposer@alum.mit.edu
+.SH LICENSE
+GNU General Public License
+
+
+
+

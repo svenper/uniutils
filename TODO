@@ -1,0 +1,8 @@
+Need to update unirange.c to version 5.1. (character data has been updated.)
+
+Add a script to generate unirange.c.
+We can base this on the Consortium file Blocks.txt, but need to integrate
+the CSUR blocks and Gaspar Sinai's Hungarian runes block.
+
+Make BMPONLY define for unihist available via configure.
+

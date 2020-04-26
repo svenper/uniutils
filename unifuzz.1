@@ -1,0 +1,60 @@
+.TH unifuzz 1 "April, 2008"
+.SH NAME
+unifuzz \- Emit strings designed to test Unicode handling
+.SH SYNOPSIS
+.B unifuzz ([option flags]) 
+.SH DESCRIPTION
+.I unifuzz
+emits strings designed to test the ability of programs intended to accept Unicode input
+to handle unexpected input. These include: characters from all Unicode ranges, Private Use
+characters, surrogates, undefined characters, non-characters, control characters,
+exotic space characters, sequences violating normalization rules, unexpected sequences
+(e.g. a base character from one range followed by a combining character from another
+range), and long sequences of combining characters.
+It can also generate very long lines, strings containing embedded nulls, and ill-formed UTF-8.
+.br
+.SH COMMAND LINE FLAGS
+.br
+.IP "-b"
+Restrict the output to the Basic Multilingual Plane (Plane 0).
+.IP "-g"
+Do not emit specific characters.
+.IP "-h"
+Print usage information.
+.IP "-l"
+Emit very long lines.
+.IP "-n"
+Emit string with embedded nulls.
+.IP "-q"
+Be quiet. Omit commentary.
+.IP "-r <number>"
+Set the number of random characters to emit.
+.IP "-S"
+Scan ranges - emit a character from each range.
+.IP "-s <seed>"
+Set the seed for the random number generator.
+.IP "-u"
+Emit ill-formed UTF-8.
+.IP "-v"
+Print version information.
+.sp
+.PP
+The sequence of random characters is determined by a pseudorandom number generator,
+so the same sequence can be obtained by setting the seed to the same value. If not
+set on the command line, a seed is chosen based on the time of execution. The seed
+used is included in the output in a line of the form "Seed = NNNNNN" immediately
+preceding the random character sequence. Note that in order to obtain the same sequence
+it is necessary to keep the same setting for restriction of output to the BMP.
+.sp
+.SH REFERENCES
+Unicode Standard, version 5.0
+.SH AUTHOR
+Bill Poser
+.br
+billposer@alum.mit.edu
+.SH LICENSE
+GNU General Public License
+
+
+
+

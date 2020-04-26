@@ -1,0 +1,36 @@
+.TH ExplicateUTF8 1 "December, 2003"
+.SH NAME
+ExplicateUTF8 \- Explain the status of a sequence of bytes as a UTF8 encoding
+.SH SYNOPSIS
+.B ExplicateUTF8 ((-o <byte offset>) <file name>)
+.SH DESCRIPTION
+.I ExplicateUTF8
+examines its input and determines whether it begins with a valid UTF8 Unicode
+sequence. If the sequence is invalid, it explains why. If the sequence is valid,
+it explains why the sequence is valid, gives the equivalent UTF-32 code, and
+explains how this value was computed.
+.PP
+If no input file name is supplied,
+.I ExplicateUTF8
+reads from the standard input.
+.SH COMMAND LINE FLAGS
+.br
+.IP "-h"
+Print usage message.
+.IP "-o <byte offset>"
+Skip the first <byte offset> bytes of the input.
+.IP "-v"
+Print version information.
+.SH REFERENCES
+Unicode Standard, version 4.1
+.SH AUTHOR
+Bill Poser
+.br
+billposer@alum.mit.edu
+.SH LICENSE
+GNU General Public License
+
+
+
+
+

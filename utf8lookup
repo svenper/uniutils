@@ -1,0 +1,21 @@
+#!/bin/sh
+#This script provides a handy way to look up Unicode characters from
+#the command line.
+# Usage: utf8lookup <unicode codepoint as hex text without leading 0x>
+# For example, the command:
+# 	utf8lookup 0543
+# will produce the output:
+#       UTF-32   name
+#	000543   ARMENIAN CAPITAL LETTER CHEH
+#
+echo 0x$1 |		 # feed command-line argument to ascii2binary's stdin
+ascii2binary -t ui |	 # convert text to unsigned integer
+iconv -f utf32 -t utf8 | # convert utf-32 to utf-8 encoding
+uniname -b -c -e -g      # feed to uniname, suppressing byte and character offsets,
+			 # UTF-8 encoding, and glyph
+
+
+
+
+
+

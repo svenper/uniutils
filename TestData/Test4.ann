@@ -1,0 +1,3 @@
+0xA2 0xA3	#invalid because first byte has form of continuation byte
+
+

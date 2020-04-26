@@ -1,0 +1,13 @@
+0x0061	#defined character in BMP, 1 byte UTF-8 encoding
+0x0570	#defined character in BMP, 2 byte UTF-8 encoding
+0xFFE0	#defined character in BMP, 3 byte UTF-8 encoding
+0x1002D	#defined character outisde BMP, 4 byte UTF-8 encoding
+0x0BBA	#undefined character within defined range
+0x4E12	#defined character within range for which database lacks specific information
+0x18C0	#codepoint in undefined range within BMP
+0x2D000	#codepoint in undefined range outside BMP
+
+
+
+
+

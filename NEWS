@@ -1,0 +1,25 @@
+Version 2.27 fixes a bug in the -V option of uniname, updates the character
+information to Unicode version 5.1, and fixes some other minor bugs.
+
+Version 2.26 renames unirev to unireverse and adds unifuzz, which generates
+test input for programs expecting Unicode. Unifuzz can generate a random string
+of characters, tokens of various potentially problematic characters and sequences,
+very long lines, strings with embedded nulls, and ill-formed UTF-8. 
+
+Version 2.25 adds to unidesc the option -r which causes it to list the ranges
+detected after reading all input rather than listing them as they are encountered,
+and adds to uniname the option -B which causes it to ignore characters
+within the Basic Multilingual Plane.
+
+Version 2.24 adds the utility unirev, which reverses its input. 
+
+Version 2.22 adds the command line option -A, which causes ASCII whitespace to be skipped.
+
+Version 2.20 fixes bugs in unidesc and unihist and adds to uniname the
+option of skipping ASCII characters.
+
+Version 2.19 has been updated to Unicode 5.0.
+
+Version 2.18 fixes a bug in which a read interrupted in the midst of
+a UTF-8 sequence was incorrectly treated as a truncated sequence.
+

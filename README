@@ -1,0 +1,201 @@
+This directory contains programs for working with Unicode.
+
+They have been compiled and executed succesfully under GNU/Linux, SunOs, and FreeBSD.
+They should compile and run on any POSIX-compliant system.
+
+If you have the GNU autoconf/automake, the sequence:
+
+./configure
+make
+make install-strip
+
+should do the trick.
+
+Details may be found in INSTALL. 
+
+unihist is compiled by default to handle the entire Unicode character set.
+If you have no use for characters outside the BMP (plane 0), you may define
+BMPONLY to reduce memory usage and save a little bit of time.
+
+Uniname may be updated by obtaining a new version of the file UnicodeData.txt
+from the Unicode consortium (http://www.unicode.org) and executing
+the command:
+
+awk -f genunames.awk < UnicodeData.txt > unames.c
+
+If Unicde ranges are added you will also need to update the file unirange.c.
+Then recompile.
+
+The directory TestData contains a number of test files.
+Files with the suffix .u are binary files. Files with the suffix .ann
+are ASCII files giving the contents of the binary files in hex
+with comments explaining the status of each piece of test data.
+
+demo.u is a utf-8 file containing text in a number of writing systems.
+(The Private Use Area characters are Hungarian Runes.
+You can see what they look like if you display the file using
+the Yudit Unicode editor (http://www.yudit.org).)
+demo.jpg is a screenshot of Yudit displaying this file.
+
+Here is the unidesc report on this file:
+
+       0	       7	Armenian
+       8	      14	Ethiopic
+      15	      20	Unified Canadian Aboriginal Syllabics
+      21	      25	Hangul Syllables
+      26	      32	Hiragana
+      33	      42	Devanagari
+      43	      47	Cherokee
+      48	      55	Tamil
+      56	      65	Gurmukhi
+      66	      71	Linear B Syllabary
+      72	      87	Private Use Area
+      88	      88	Greek/Coptic
+      89	      89	Basic Latin
+      90	      92	Latin Extended-A
+      93	     109	CJK Unified Ideographs
+     110	     116	Hebrew
+     117	     126	Georgian
+     127	     133	Malayalam
+     134	     136	Cyrillic
+
+Here is the uniname report on this file:
+
+character  byte       UTF-32   encoded as     glyph   range                                   name
+        0          0  000020   20                    Basic Latin                             SPACE
+        1          1  000020   20                    Basic Latin                             SPACE
+        2          2  000570   D5 B0          հ      Armenian                                ARMENIAN SMALL LETTER HO
+        3          4  000561   D5 A1          ա      Armenian                                ARMENIAN SMALL LETTER AYB
+        4          6  000582   D6 82          ւ      Armenian                                ARMENIAN SMALL LETTER YIWN
+        5          8  000580   D6 80          ր      Armenian                                ARMENIAN SMALL LETTER REH
+        6         10  00000A   0A                    Basic Latin                             LINE FEED (LF)
+        7         11  000009   09                    Basic Latin                             CHARACTER TABULATION
+        8         12  001275   E1 89 B5       ት      Ethiopic                                ETHIOPIC SYLLABLE TE
+        9         15  00130D   E1 8C 8D       ግ      Ethiopic                                ETHIOPIC SYLLABLE GE
+       10         18  00122D   E1 88 AD       ር      Ethiopic                                ETHIOPIC SYLLABLE RE
+       11         21  00129B   E1 8A 9B       ኛ      Ethiopic                                ETHIOPIC SYLLABLE NYAA
+       12         24  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       13         25  000009   09                    Basic Latin                             CHARACTER TABULATION
+       14         26  000009   09                    Basic Latin                             CHARACTER TABULATION
+       15         27  001455   E1 91 95       ᑕ      Unified Canadian Aboriginal Syllabics   CANADIAN SYLLABICS TA
+       16         30  0015F8   E1 97 B8       ᗸ      Unified Canadian Aboriginal Syllabics   CANADIAN SYLLABICS CARRIER KHEE
+       17         33  0014A1   E1 92 A1       ᒡ      Unified Canadian Aboriginal Syllabics   CANADIAN SYLLABICS C
+       18         36  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       19         37  000020   20                    Basic Latin                             SPACE
+       20         38  000020   20                    Basic Latin                             SPACE
+       21         39  00D55C   ED 95 9C       한      Hangul Syllables                        No character name is available
+       22         42  00AD6D   EA B5 AD       국      Hangul Syllables                        No character name is available
+       23         45  00B9D0   EB A7 90       말      Hangul Syllables                        No character name is available
+       24         48  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       25         49  000009   09                    Basic Latin                             CHARACTER TABULATION
+       26         50  00306B   E3 81 AB       に      Hiragana                                HIRAGANA LETTER NI
+       27         53  00307B   E3 81 BB       ほ      Hiragana                                HIRAGANA LETTER HO
+       28         56  003093   E3 82 93       ん      Hiragana                                HIRAGANA LETTER N
+       29         59  003054   E3 81 94       ご      Hiragana                                HIRAGANA LETTER GO
+       30         62  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       31         63  000009   09                    Basic Latin                             CHARACTER TABULATION
+       32         64  000009   09                    Basic Latin                             CHARACTER TABULATION
+       33         65  000926   E0 A4 A6       द      Devanagari                              DEVANAGARI LETTER DA
+       34         68  000947   E0 A5 87       े      Devanagari                              DEVANAGARI VOWEL SIGN E
+       35         71  000935   E0 A4 B5       व      Devanagari                              DEVANAGARI LETTER VA
+       36         74  000928   E0 A4 A8       न      Devanagari                              DEVANAGARI LETTER NA
+       37         77  00093E   E0 A4 BE       ा      Devanagari                              DEVANAGARI VOWEL SIGN AA
+       38         80  000917   E0 A4 97       ग      Devanagari                              DEVANAGARI LETTER GA
+       39         83  000930   E0 A4 B0       र      Devanagari                              DEVANAGARI LETTER RA
+       40         86  000940   E0 A5 80       ी      Devanagari                              DEVANAGARI VOWEL SIGN II
+       41         89  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       42         90  000020   20                    Basic Latin                             SPACE
+       43         91  0013E3   E1 8F A3       Ꮳ      Cherokee                                CHEROKEE LETTER TSA
+       44         94  0013B3   E1 8E B3       Ꮃ      Cherokee                                CHEROKEE LETTER LA
+       45         97  0013A9   E1 8E A9       Ꭹ      Cherokee                                CHEROKEE LETTER GI
+       46        100  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       47        101  000009   09                    Basic Latin                             CHARACTER TABULATION
+       48        102  000BA4   E0 AE A4       த      Tamil                                   TAMIL LETTER TA
+       49        105  000BAE   E0 AE AE       ம      Tamil                                   TAMIL LETTER MA
+       50        108  000BBF   E0 AE BF       ி      Tamil                                   TAMIL VOWEL SIGN I
+       51        111  000BB2   E0 AE B2       ல      Tamil                                   TAMIL LETTER LA
+       52        114  000BCD   E0 AF 8D       ்      Tamil                                   TAMIL SIGN VIRAMA
+       53        117  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       54        118  000009   09                    Basic Latin                             CHARACTER TABULATION
+       55        119  000009   09                    Basic Latin                             CHARACTER TABULATION
+       56        120  000A17   E0 A8 97       ਗ      Gurmukhi                                GURMUKHI LETTER GA
+       57        123  000A41   E0 A9 81       ੁ      Gurmukhi                                GURMUKHI VOWEL SIGN U
+       58        126  000A30   E0 A8 B0       ਰ      Gurmukhi                                GURMUKHI LETTER RA
+       59        129  000A4D   E0 A9 8D       ੍      Gurmukhi                                GURMUKHI SIGN VIRAMA
+       60        132  000A2E   E0 A8 AE       ਮ      Gurmukhi                                GURMUKHI LETTER MA
+       61        135  000A41   E0 A9 81       ੁ      Gurmukhi                                GURMUKHI VOWEL SIGN U
+       62        138  000A16   E0 A8 96       ਖ      Gurmukhi                                GURMUKHI LETTER KHA
+       63        141  000A3F   E0 A8 BF       ਿ      Gurmukhi                                GURMUKHI VOWEL SIGN I
+       64        144  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       65        145  000020   20                    Basic Latin                             SPACE
+       66        146  010024   F0 90 80 A4    𐀤      Linear B Syllabary                      LINEAR B SYLLABLE B078 QE
+       67        150  010035   F0 90 80 B5    𐀵      Linear B Syllabary                      LINEAR B SYLLABLE B005 TO
+       68        154  01002B   F0 90 80 AB    𐀫      Linear B Syllabary                      LINEAR B SYLLABLE B002 RO
+       69        158  01003A   F0 90 80 BA    𐀺      Linear B Syllabary                      LINEAR B SYLLABLE B042 WO
+       70        162  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       71        163  000009   09                    Basic Latin                             CHARACTER TABULATION
+       72        164  00F8E4   EF A3 A4             Private Use Area                        No character name is available
+       73        167  00F8D7   EF A3 97             Private Use Area                        No character name is available
+       74        170  00F8DC   EF A3 9C             Private Use Area                        No character name is available
+       75        173  00F8DD   EF A3 9D             Private Use Area                        No character name is available
+       76        176  00F8DB   EF A3 9B             Private Use Area                        No character name is available
+       77        179  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       78        180  000009   09                    Basic Latin                             CHARACTER TABULATION
+       79        181  000009   09                    Basic Latin                             CHARACTER TABULATION
+       80        182  00EE14   EE B8 94             Private Use Area                        No character name is available
+       81        185  00EE00   EE B8 80             Private Use Area                        No character name is available
+       82        188  00EE0B   EE B8 8B             Private Use Area                        No character name is available
+       83        191  00EE00   EE B8 80             Private Use Area                        No character name is available
+       84        194  00EE1C   EE B8 9C             Private Use Area                        No character name is available
+       85        197  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       86        198  000020   20                    Basic Latin                             SPACE
+       87        199  000020   20                    Basic Latin                             SPACE
+       88        200  0003B2   CE B2          β      Greek/Coptic                            GREEK SMALL LETTER BETA
+       89        202  000061   61             a      Basic Latin                             LATIN SMALL LETTER A
+       90        203  00014B   C5 8B          ŋ      Latin Extended-A                        LATIN SMALL LETTER ENG
+       91        205  00000A   0A                    Basic Latin                             LINE FEED (LF)
+       92        206  000009   09                    Basic Latin                             CHARACTER TABULATION
+       93        207  004E09   E4 B8 89       三      CJK Unified Ideographs                  No character name is available
+       94        210  004E32   E4 B8 B2       串      CJK Unified Ideographs                  No character name is available
+       95        213  000020   20                    Basic Latin                             SPACE
+       96        214  000020   20                    Basic Latin                             SPACE
+       97        215  000020   20                    Basic Latin                             SPACE
+       98        216  000020   20                    Basic Latin                             SPACE
+       99        217  000020   20                    Basic Latin                             SPACE
+      100        218  000020   20                    Basic Latin                             SPACE
+      101        219  000009   09                    Basic Latin                             CHARACTER TABULATION
+      102        220  000009   09                    Basic Latin                             CHARACTER TABULATION
+      103        221  000009   09                    Basic Latin                             CHARACTER TABULATION
+      104        222  000009   09                    Basic Latin                             CHARACTER TABULATION
+      105        223  000009   09                    Basic Latin                             CHARACTER TABULATION
+      106        224  000009   09                    Basic Latin                             CHARACTER TABULATION
+      107        225  000009   09                    Basic Latin                             CHARACTER TABULATION
+      108        226  000009   09                    Basic Latin                             CHARACTER TABULATION
+      109        227  000009   09                    Basic Latin                             CHARACTER TABULATION
+      110        228  0005E9   D7 A9          ש      Hebrew                                  HEBREW LETTER SHIN
+      111        230  0005DC   D7 9C          ל      Hebrew                                  HEBREW LETTER LAMED
+      112        232  0005D5   D7 95          ו      Hebrew                                  HEBREW LETTER VAV
+      113        234  0005DE   D7 9E          מ      Hebrew                                  HEBREW LETTER MEM
+      114        236  00000A   0A                    Basic Latin                             LINE FEED (LF)
+      115        237  000020   20                    Basic Latin                             SPACE
+      116        238  000020   20                    Basic Latin                             SPACE
+      117        239  0010D7   E1 83 97       თ      Georgian                                GEORGIAN LETTER TAN
+      118        242  0010D1   E1 83 91       ბ      Georgian                                GEORGIAN LETTER BAN
+      119        245  0010D8   E1 83 98       ი      Georgian                                GEORGIAN LETTER IN
+      120        248  0010DA   E1 83 9A       ლ      Georgian                                GEORGIAN LETTER LAS
+      121        251  0010D8   E1 83 98       ი      Georgian                                GEORGIAN LETTER IN
+      122        254  0010E1   E1 83 A1       ს      Georgian                                GEORGIAN LETTER SAN
+      123        257  0010D8   E1 83 98       ი      Georgian                                GEORGIAN LETTER IN
+      124        260  000020   20                    Basic Latin                             SPACE
+      125        261  00000A   0A                    Basic Latin                             LINE FEED (LF)
+      126        262  000009   09                    Basic Latin                             CHARACTER TABULATION
+      127        263  000D15   E0 B4 95       ക      Malayalam                               MALAYALAM LETTER KA
+      128        266  000D46   E0 B5 86       െ      Malayalam                               MALAYALAM VOWEL SIGN E
+      129        269  000D30   E0 B4 B0       ര      Malayalam                               MALAYALAM LETTER RA
+      130        272  000D32   E0 B4 B2       ല      Malayalam                               MALAYALAM LETTER LA
+      131        275  00000A   0A                    Basic Latin                             LINE FEED (LF)
+      132        276  000009   09                    Basic Latin                             CHARACTER TABULATION
+      133        277  000009   09                    Basic Latin                             CHARACTER TABULATION
+      134        278  00043C   D0 BC          м      Cyrillic                                CYRILLIC SMALL LETTER EM
+      135        280  000438   D0 B8          и      Cyrillic                                CYRILLIC SMALL LETTER I
+      136        282  000440   D1 80          р      Cyrillic                                CYRILLIC SMALL LETTER ER
