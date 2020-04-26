@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "unicode.h"
-#include "unirange.h"
+#include "uranges.h"
+#include "uranges.c"
 
 int Ranges_Defined = sizeof(Range_Table)/sizeof(struct cr);
 static int Maximum_Range_Name_Length;

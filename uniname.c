@@ -39,7 +39,7 @@
 #include <string.h>
 #include "unicode.h"
 #include "utf8error.h"
-#include "unirange.h"
+#include "uranges.h"
 #include "offsettbl.h"
 #include "nelson.h"
 

@@ -32,7 +32,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "unicode.h"
-#include "unirange.h"
+#include "uranges.h"
 
 #define DEFRANDCHARS 1E6
 #define MSGSIZE 128

@@ -39,7 +39,7 @@
 #include "utf8error.h"
 #include "unicode.h"
 #include "uniftypes.h"
-#include "unirange.h"
+#include "uranges.h"
 
 #define MSGSIZE 128
 
