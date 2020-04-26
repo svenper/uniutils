@@ -6,4 +6,6 @@ the CSUR blocks and Gaspar Sinai's Hungarian runes block.
 
 Make BMPONLY define for unihist available via configure.
 
+Make empty "ranges" report as such, not as the range before it.
+
 Make zero-width and full-width characters align in columns.

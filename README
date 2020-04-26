@@ -18,12 +18,16 @@ If you have no use for characters outside the BMP (plane 0), you may define
 BMPONLY to reduce memory usage and save a little bit of time.
 
 Uniname may be updated by obtaining a new version of the file UnicodeData.txt
-from the Unicode consortium (http://www.unicode.org) and executing
-the command:
+from the Unicode consortium <https://unicode.org/Public/13.0.0/ucd/> (or
+another version) and executing the command:
 
 awk -f genunames.awk < UnicodeData.txt > unames.c
 
-If Unicde ranges are added you will also need to update the file unirange.c.
+If Unicode ranges are added you will also need to update the file unirange.c.
+This can be done with:
+
+genuranges.sh Blocks.txt > uranges.c
+
 Then recompile.
 
 The directory TestData contains a number of test files.

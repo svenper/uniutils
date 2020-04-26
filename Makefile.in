@@ -74,7 +74,7 @@ am_unihist_OBJECTS = unihist.$(OBJEXT) Get_UTF32_From_UTF8i.$(OBJEXT) \
 unihist_OBJECTS = $(am_unihist_OBJECTS)
 unihist_LDADD = $(LDADD)
 am_uniname_OBJECTS = uniname.$(OBJEXT) Get_UTF32_From_UTF8i.$(OBJEXT) \
-	Get_UTF32i.$(OBJEXT) unames.$(OBJEXT) unirange.$(OBJEXT) \
+	Get_UTF32i.$(OBJEXT) unames.$(OBJEXT) uranges.$(OBJEXT) unirange.$(OBJEXT) \
 	offsettbl.$(OBJEXT) NelsonTbl.$(OBJEXT) putu8.$(OBJEXT) \
 	ExplicateBadUTF8.$(OBJEXT) binfmt.$(OBJEXT)
 uniname_OBJECTS = $(am_uniname_OBJECTS)
@@ -188,7 +188,7 @@ target_alias = @target_alias@
 bin_SCRIPTS = utf8lookup
 dist_man_MANS = unidesc.1 uniname.1 ExplicateUTF8.1 unihist.1 unireverse.1 unifuzz.1
 unidesc_SOURCES = Get_UTF32_From_UTF8i.c unidesc.c Get_UTF32i.c Read_UMagic_Number.c unirange.c ExplicateBadUTF8.c binfmt.c
-uniname_SOURCES = uniname.c Get_UTF32_From_UTF8i.c Get_UTF32i.c unames.c unirange.c offsettbl.c NelsonTbl.c putu8.c ExplicateBadUTF8.c binfmt.c
+uniname_SOURCES = uniname.c Get_UTF32_From_UTF8i.c Get_UTF32i.c unames.c uranges.c unirange.c offsettbl.c NelsonTbl.c putu8.c ExplicateBadUTF8.c binfmt.c
 unihist_SOURCES = unihist.c Get_UTF32_From_UTF8i.c  putu8.c ExplicateBadUTF8.c binfmt.c
 ExplicateUTF8_SOURCES = ExplicateUTF8.c binfmt.c
 unireverse_SOURCES = unireverse.c
@@ -330,6 +330,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/offsettbl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/putu8.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unames.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/uranges.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unidesc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unifuzz.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unihist.Po@am__quote@
